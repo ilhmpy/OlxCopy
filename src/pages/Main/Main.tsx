@@ -1,9 +1,9 @@
-import { Container } from "../../components/Container/Container";
-import * as Styled from "./Main.styles";
+import { Search } from "../../components/Search/Search";
 
 export function Main() {
    return (
-       <Container> 
-       </Container>
-   ) 
+       <div> 
+         <Search />
+       </div>
+   );
 }

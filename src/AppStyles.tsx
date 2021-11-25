@@ -10,7 +10,6 @@ export const AppStylesProvider = createGlobalStyle`
     margin: 0;
     width: 100%;
     background: #f2f4f5;
-    height: 2300px;
     color: #002f34;
     font-family: 'Roboto', Arial, sans-serif;
   }
@@ -28,5 +27,9 @@ export const AppStylesProvider = createGlobalStyle`
     outline: none;
     cursor: pointer;
     border: 0;
+  }
+  input {
+    border: 0;
+    outline: none;
   }
 `; 
