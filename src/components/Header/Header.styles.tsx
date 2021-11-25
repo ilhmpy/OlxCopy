@@ -1,19 +1,23 @@
 import styled from "styled-components";
 import { ReactComponent as logo } from "../../assets/logo.svg";
  
-export const HeaderWrap = styled.div`
+export const HeaderWrap = styled.div<{ position: "top" | "default"}>`
     width: 100%;
     background: #002f34;
+    transition: transform 0.5s cubic-bezier(0.8, 0.2, 0.2, 0.8);
     position: fixed;
+    transform: ${({ position }) => `translateY(${position === "top" ? -100 : 0}%)`};
     top: 0;
     left: 0;
     height: 72px;
     right: 0;
     z-index: 100;
-    transition: transform 0.5s cubic-bezier(0.8, 0.2, 0.2, 0.8);
     & > div {
         display: flex;
         align-items: center;
+    }
+    @media (max-width: 767px) {
+        height: 60px;
     }
 `;
 
@@ -23,9 +27,28 @@ export const HeaderLinks = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    @media (max-width: 767px) {
+        display: none;
+    }
 `;
 
 export const HeaderLink = styled.a`
+    color: #fff;
+    display: flex;
+    transition: 0.2s;
+    font-size: 16px;
+    margin-right: 40px;
+    align-items: center;
+    &:hover {
+        color: #7F9799;
+    }
+    @media (max-width: 767px) {
+        justify-content: center;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+        font-weight: 300;
+    }
 `;
 
 export const Logo = styled(logo)`
@@ -36,50 +59,44 @@ export const Logo = styled(logo)`
     & path {
         fill: #23e5db;
     }
-`;
-
-export const SwitchLanguage = styled.div`
-    padding: 7px 12px;
-    font-size: 14px;
-    line-height: 1.29;
-    display: flex;
-    position: relative;
-`;
-
-export const SwitchItem = styled.h3<{ active: boolean; }>`
-    color: #7f9799;
-    font-size: 13px;
-    font-weight: normal;
-    &:first-child {
-        margin-right: 20px;
-        &::after {
-            content: "";
-            display: block;
-            background: #7f9799;
-            position: absolute;
-            height: 15px;
-            width: 1px;
-            margin-left: auto;
-            margin-right: auto;
-            right: 0;
-            left: 0;
-            top: 10px;
-        }
+    @media (max-width: 767px) {
+        width: 45px;
+        height: 45px;
+        margin-left: 0;
     }
-    ${({ active }) => {
-        if (active) {
-            return `
-                cursor: text;
-            `;
-        };
-        if (!active) {
-            return `    
-                cursor: pointer;
-                color: #fff;
-                &:hover {
-                    text-decoration: underline;
-                }
-            `;
-        };
-    }}
+`;
+
+export const FontAwesomeBlock = styled.div<{ withoutMargin?: boolean; }>`
+    margin-right: ${({ withoutMargin }) => withoutMargin ? 0 : 15}px;
+    & > i::before {
+        font-size: 22px;
+    }
+`;
+
+export const MobileBar = styled.div`
+    display: none;
+    position: absolute;
+    right: 0;
+    & > i {
+        font-size: 25px;
+    }
+    color: #fff;
+    @media (max-width: 767px) {
+        display: flex;
+    }
+`;
+
+export const MobileBlock = styled.div`
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    background: #002f34;
+    display: none;
+    transition: 1s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    @media (max-width: 767px) {
+        display: flex;
+    }
 `;

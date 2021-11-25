@@ -1,28 +1,55 @@
 import { Container } from "../Container/Container";
 import * as Styled from "./Header.styles";
 import { useHistory } from "react-router-dom"; 
-import { useEffect } from "react";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useEffect, useState } from "react";
+import { Button } from "../Button/Button";
+import { MobileNav } from "./MobileNav";
+import { SwitchLanguageComponent as SwitchLanguage } from "../../components/SwitchLanguage/SwitchLanguage";
  
 export const Header = () => {
     const history = useHistory();
-    const [lang, setLang] = useLocalStorage("lang", "ru");
-
-    function handleChangeLanguage(lang: "ru" | "ua") {
-        setLang(lang);
-    };
+    const [position, setPosition] = useState<"top" | "default">("default");
+    
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            setPosition(window.pageYOffset >= 100 ? "top" : "default");
+        });
+    }, []);
 
     return (
-        <Styled.HeaderWrap> 
-            <Container>
-                <Styled.Logo />
-                <Styled.HeaderLinks>
-                    <Styled.SwitchLanguage>
-                        <Styled.SwitchItem active={lang === "ru"} onClick={() => handleChangeLanguage("ru")}>язык</Styled.SwitchItem>
-                        <Styled.SwitchItem active={lang === "ua"} onClick={() => handleChangeLanguage("ua")}>мова</Styled.SwitchItem>
-                    </Styled.SwitchLanguage>
-                </Styled.HeaderLinks>
-            </Container> 
-        </Styled.HeaderWrap>
+        <>
+            <Styled.HeaderWrap position={position}> 
+                <Container>
+                    <Styled.Logo />
+                    <Styled.HeaderLinks>
+                        <SwitchLanguage />
+                        <Styled.HeaderLink>
+                            <Styled.FontAwesomeBlock>
+                                <i className="fas fa-comment"></i>
+                            </Styled.FontAwesomeBlock>
+                            Сообщения
+                        </Styled.HeaderLink>
+                        <Styled.HeaderLink>
+                            <Styled.FontAwesomeBlock withoutMargin>
+                                <i className="far fa-heart"></i>
+                            </Styled.FontAwesomeBlock>
+                        </Styled.HeaderLink>
+                        <Styled.HeaderLink>
+                            <Styled.FontAwesomeBlock>
+                                <i className="far fa-user"></i>
+                            </Styled.FontAwesomeBlock>
+                            Мой профиль
+                        </Styled.HeaderLink>
+                        <Button>
+                            <span>Подать объявление</span>
+                        </Button>
+                    </Styled.HeaderLinks>
+                    <Button mobileBtn>
+                        <span>Подать объявление</span>
+                    </Button>
+                </Container> 
+            </Styled.HeaderWrap>
+            <MobileNav />
+        </>
     );
 }; 

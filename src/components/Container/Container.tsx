@@ -6,4 +6,7 @@ export const Container = styled.div`
     height: inherit !important;
     margin: 0 auto;
     position: relative;
+    @media (max-width: 767px) {
+        max-width: 85%;
+    }
 `;
