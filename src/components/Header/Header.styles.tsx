@@ -55,7 +55,7 @@ export const Logo = styled(logo)`
     width: 71px;
     height: 41px;
     cursor: pointer;
-    margin-left: -15px;
+    margin-left: -3px;
     & path {
         fill: #23e5db;
     }

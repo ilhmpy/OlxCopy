@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.button<{ width?: number; height?: number; mobileBtn?: boolean; }>`
+export const Button = styled.button<{ width?: number; height?: number; mobileBtn?: boolean; blackButton?: boolean; }>`
     width: ${({ width }) => width ? width : 196}px;
     height: ${({ height }) => height ? height : 46}px;
     display: flex;
@@ -47,6 +47,38 @@ export const Button = styled.button<{ width?: number; height?: number; mobileBtn
                     }
                 }  
             `;
+        };
+    }}
+    ${({ blackButton }) => {
+        if (blackButton) {
+           return `
+                width: 100%;
+                height: inherit !important;
+                box-shadow: none;
+                border: 0;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding-left: 35px;
+                max-width: 148px;
+                color: #002f34;
+                font-weight: 500;
+                font-size: 16px;
+                transition: 0.3s;
+                & svg, path {
+                    fill: #002f34 !important; 
+                }
+                &:hover {
+                    background: #002f34;
+                    & span {
+                        color: #fff;
+                    }
+                    & svg, path { 
+                        fill: #fff !important;
+                    }
+                }
+           `; 
         };
     }}
 `;

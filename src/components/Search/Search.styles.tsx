@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as Search } from "../../assets/search.svg";
 
 export const SearchBlock = styled.div`
     width: 100%;
@@ -6,15 +7,17 @@ export const SearchBlock = styled.div`
     background: #fff;
     margin-top: 120px;
     margin-bottom: 40px;
+    display: flex;
+    @media (max-width: 767px) {
+        margin-bottom: 20px;
+    }
 `;
 
-export const SearchInput = styled.input`
-    width: 70%;
-    height: inherit;
-    display: block;
-    padding-left: 60px;
-    &::placeholder {
-        color: #000;
-        opacity: 80%;
+export const SearchSVG = styled(Search)`
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    & svg, path {
+        fill: #000 !important;
     }
 `;
