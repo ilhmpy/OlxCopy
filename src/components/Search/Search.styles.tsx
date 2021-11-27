@@ -6,7 +6,6 @@ export const SearchBlock = styled.div`
     height: 72px;
     background: #fff;
     margin-top: 120px;
-    margin-bottom: 40px;
     display: flex;
     @media (max-width: 767px) {
         margin-bottom: 20px;

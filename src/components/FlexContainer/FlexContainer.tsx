@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FlexContainer = styled.div`
+export const FlexContainer = styled.div<{ minHeight?: number; }>`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -8,4 +8,11 @@ export const FlexContainer = styled.div`
        width: auto;
        margin: 0 auto;
     }
+    ${({ minHeight }) => {
+        if (minHeight) {
+            return `
+                min-height: ${minHeight}px;  
+            `;
+        };
+    }}
 `;

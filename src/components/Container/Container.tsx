@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 type ContainerProps = {
     white?: boolean;
+    boxShadow?: boolean;
 }; 
 
 export const Container = styled.div<ContainerProps>`
@@ -23,6 +24,12 @@ export const Container = styled.div<ContainerProps>`
                 @media (max-width: 767px) {
                     padding-top: 30px;
                 }
+            `;
+        };
+    }}
+    ${({ boxShadow }) => {
+        if (boxShadow) {
+            return `
             `;
         };
     }}

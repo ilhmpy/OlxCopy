@@ -9,10 +9,15 @@ import { SwitchLanguageComponent as SwitchLanguage } from "../../components/Swit
 export const Header = () => {
     const history = useHistory();
     const [position, setPosition] = useState<"top" | "default">("default");
-    
+
+    function getPosition() {
+        return window.pageYOffset >= 100 ? "top" : "default";
+    };
+
     useEffect(() => {
+        setPosition(getPosition());
         window.addEventListener("scroll", () => {
-            setPosition(window.pageYOffset >= 100 ? "top" : "default");
+            setPosition(getPosition());
         });
     }, []);
 

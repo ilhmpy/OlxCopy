@@ -44,9 +44,9 @@ export const Rubrics = () => {
 
     return (
         <Block>
-            <Container white>
+            <Container white boxShadow>
                 <H3>Главные рубрики</H3>
-                <FlexContainer>
+                <FlexContainer minHeight={430}>
                     {rubrics.map(({ img, desc, bgColor, href }) => (
                         <Card img={img} desc={desc} bgColor={bgColor} href={href} />
                     ))}
