@@ -9,6 +9,7 @@ export const AppStylesProvider = createGlobalStyle`
   body {
     margin: 0;
     width: 100%;
+    height: 3200px;
     background: #f2f4f5;
     color: #002f34;
     font-family: 'Roboto', Arial, sans-serif;

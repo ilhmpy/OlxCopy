@@ -96,6 +96,7 @@ export const MobileBlock = styled.div`
     align-items: center;
     justify-content: center;
     bottom: 0;
+    z-index: 11111;
     @media (max-width: 767px) {
         display: flex;
     }

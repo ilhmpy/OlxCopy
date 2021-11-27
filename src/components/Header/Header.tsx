@@ -24,7 +24,7 @@ export const Header = () => {
                     <Styled.HeaderLinks>
                         <SwitchLanguage />
                         <Styled.HeaderLink>
-                            <Styled.FontAwesomeBlock>
+                            <Styled.FontAwesomeBlock title="Избранные">
                                 <i className="fas fa-comment"></i>
                             </Styled.FontAwesomeBlock>
                             Сообщения

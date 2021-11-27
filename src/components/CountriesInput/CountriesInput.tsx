@@ -30,6 +30,7 @@ const CountriesContainer = styled.div<CountriesInputProps>`
     height: inherit;
     display: flex;
     @media (max-width: 767px) {
+        margin-bottom: 20px;
         ${({ noneOnMobile }) => {
             if (noneOnMobile) {
                 return `

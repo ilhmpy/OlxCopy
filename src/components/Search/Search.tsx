@@ -5,15 +5,17 @@ import { useState } from "react";
 import { CountriesInput } from "../CountriesInput/CountriesInput";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 export const Search = () => {
     const [addsCount, setAddCount] = useState<number>(0);
+    const [size, setSize] = useWindowSize();
     return (
         <Block>
             <Container> 
                 <Styled.SearchBlock>
                     <Input placeholder={`${addsCount} объявлений рядом`} maxWidth={752} mobilePaddingLeft={0}>
-                        {window.screen.width > 767 && (
+                        {size > 767 && (
                             <Styled.SearchSVG />
                         )}
                     </Input> 
@@ -23,7 +25,7 @@ export const Search = () => {
                         <Styled.SearchSVG style={{ marginLeft: "60px" }} />
                     </Button>
                 </Styled.SearchBlock>
-                {window.screen.width < 767 && (
+                {size < 767 && (
                     <CountriesInput opacityPlaceholder onlyOne />
                 )}
             </Container>

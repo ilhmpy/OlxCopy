@@ -15,7 +15,6 @@ export const Button = styled.button<{ width?: number; height?: number; mobileBtn
         font-weight: 500;
         font-family: 'Roboto', Arial, sans-serif;
         color: #002F34;
-        opacity: 85%;
         line-height: 20px;
     }
     &:hover {
