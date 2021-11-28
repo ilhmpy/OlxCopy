@@ -1,4 +1,4 @@
-Project on React, TypeScript, i18n(in future), node.js + express.js + mongodb(in funute when i will start write backend)
+Project on React, TypeScript, i18n(in future), node.js + express.js + mongodb(in future when i will start write backend)
 This copy of site with ads - OLX(https://www.olx.ua)
 
 Plans to realize in this project:

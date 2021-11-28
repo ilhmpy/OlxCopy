@@ -10,10 +10,10 @@ type AdCardProps = {
 }
 
 export const AdCard: FC<AdCardProps> = ({ img, desc, place, choosen }: AdCardProps) => {
-    const [prompt, setPrompt] = useState<boolean>(false);
+    const [view, setView] = useState<boolean>(false);
 
     function handleMouse() {
-        setPrompt(!prompt);
+        setView(!view);
     };
 
     return (
@@ -22,9 +22,7 @@ export const AdCard: FC<AdCardProps> = ({ img, desc, place, choosen }: AdCardPro
             <CardDesc href="">{desc}</CardDesc>
             <CardPlace>{place.city}, Вчера - {moment(place.time).format("HH:MM")}</CardPlace>
             <CardPrice>{place.price} грн.</CardPrice>
-            <Prompt display={prompt}>
-                В избранные
-            </Prompt>
+            <Prompt view={view}>В избранные</Prompt>
             <CardHeart 
                 onMouseOver={handleMouse} onMouseOut={handleMouse} 
                 className="far fa-heart" choosen={choosen} 
@@ -84,7 +82,7 @@ const CardPrice = styled.h3`
     font-weight: 500;
 `;
 
-export const Prompt = styled.div<{ display: boolean; }>`
+export const Prompt = styled.div<{ view: boolean; }>`
     position: absolute;
     background: #3a77ff;
     margin-bottom: 10px;
@@ -100,6 +98,7 @@ export const Prompt = styled.div<{ display: boolean; }>`
     right: -75px;
     z-index: 999;
     font-weight: 400;
+    display: ${({ view }) => view ? "flex" : "none"};
     &::before {
         width: 0;
         height: 0;
@@ -112,7 +111,6 @@ export const Prompt = styled.div<{ display: boolean; }>`
         border-width: 10px 7px 0 7px;
         border-color: #3a77ff transparent transparent transparent;
     }
-    display: ${({ display }) => display ? "flex" : "none"};
 `;
 
 const CardHeart = styled.i<{ choosen: boolean; }>`

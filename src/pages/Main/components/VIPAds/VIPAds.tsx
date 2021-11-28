@@ -6,7 +6,10 @@ import { useState } from "react";
 import test  from "../../../../assets/test.webp";
 import { useWindowSize } from "../../../../hooks/useWindowSize";
 import { FlexContainer } from "../../../../components/FlexContainer/FlexContainer";
-// import { Swiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { MediaBlock } from "../../../../components/MediaBlock/MediaBlock";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import 'swiper/swiper.min.css';
 
 export const VIPads = () => {
     const [ads, setAds] = useState<any[]>([
@@ -30,16 +33,16 @@ export const VIPads = () => {
         { img: test, desc: "Гирлянда светодиодная Водопад 320 LED (3х1,5) с тепло-белым", place: { city: "Киев, Дарницкий", time: new Date(), price: 1599 }},
         { img: test, desc: "Гирлянда светодиодная Водопад 320 LED (3х1,5) с тепло-белым", place: { city: "Киев, Дарницкий", time: new Date(), price: 1599 }},
     ]);
-    const [size, setSize] = useWindowSize();
   
     return (
         <Block>
             <Container>
                 <H3>VIP-объявления</H3>
-                {size > 767 ? (
+                <MediaBlock showMobile={false} desctopDisplay={"flex"} showDesctop={true}>
                     <FlexContainer>
-                        {ads.map((i) => (
-                            <AdCard 
+                        {ads.map((i, idx) => (
+                            <AdCard
+                                key={idx} 
                                 img={i.img} 
                                 desc={i.desc} 
                                 place={i.place} 
@@ -47,10 +50,30 @@ export const VIPads = () => {
                             />
                         ))}
                     </FlexContainer>
-                ) : (
-                    <></>
-                )}
-            </Container>
+                </MediaBlock>
+                <MediaBlock showMobile={true} showDesctop={false}>
+                    <Swiper 
+                        navigation
+                        slidesPerView={1} 
+                        spaceBetween={30}
+                        pagination={{ clickable: true }}
+                        scrollbar={{ draggable: true }}
+
+                    >
+                        {ads.map((i, idx) => ( 
+                            <SwiperSlide>
+                                <AdCard
+                                    key={idx}  
+                                    img={i.img} 
+                                    desc={i.desc} 
+                                    place={i.place} 
+                                    choosen={true}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </MediaBlock>
+              </Container>
         </Block>
     );
 }; 
