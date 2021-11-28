@@ -13,7 +13,7 @@ export const Search = () => {
     const [size, setSize] = useWindowSize();
 
     return (
-        <Block>
+        <Block marginBottom="40">
             <Container> 
                 <Styled.SearchBlock>
                     <Input placeholder={`${addsCount} объявлений рядом`} maxWidth={752} mobilePaddingLeft={0}>

@@ -6,6 +6,9 @@ type BlockProps = {
     center?: boolean;
     paddingsMobile?: boolean;
     withoutMarginBottom?: boolean;
+    padding?: string;
+    styles?: string;
+    marginBottom?: string;
 }
 
 export const Block = styled.div<BlockProps>`
@@ -13,6 +16,14 @@ export const Block = styled.div<BlockProps>`
     height: auto;
     min-height: ${({ height }) => height ? `${height}px` : "auto"};
     margin-bottom: ${({ withoutMarginBottom }) => withoutMarginBottom ? "0px" : "78px"};
+    ${({ marginBottom }) => {
+        if (marginBottom) {
+            return `
+                margin-bottom: ${marginBottom}px;  
+            `;
+        };
+    }}
+    padding: ${({ padding }) => padding ? padding : ""};
     background: ${({ background }) => background ? background : ""};
     ${({ center }) => {
         if (center) {
@@ -30,6 +41,7 @@ export const Block = styled.div<BlockProps>`
             `;
         };
     }}
+    ${({ styles }) => ( styles && styles )}
     @media (max-width: 767px) {
         margin-bottom: ${({ withoutMarginBottom }) => withoutMarginBottom ? "0px" : "30px"};
         ${({ paddingsMobile }) => {

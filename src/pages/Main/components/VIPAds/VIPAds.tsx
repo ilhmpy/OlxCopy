@@ -61,9 +61,8 @@ export const VIPads = () => {
 
                     >
                         {ads.map((i, idx) => ( 
-                            <SwiperSlide>
-                                <AdCard
-                                    key={idx}  
+                            <SwiperSlide key={idx}>
+                                <AdCard 
                                     img={i.img} 
                                     desc={i.desc} 
                                     place={i.place} 

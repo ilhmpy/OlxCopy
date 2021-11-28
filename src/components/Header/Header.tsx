@@ -9,15 +9,18 @@ import { SwitchLanguageComponent as SwitchLanguage } from "../../components/Swit
 export const Header = () => {
     const history = useHistory();
     const [position, setPosition] = useState<"top" | "default">("default");
+    const [currentY, setCurrentY] = useState<number>(0);
 
     function getPosition() {
-        return window.pageYOffset >= 100 ? "top" : "default";
+        return window.pageYOffset > currentY ? "top" : "default";
     };
 
     useEffect(() => {
+        setCurrentY(window.pageYOffset);
         setPosition(getPosition());
         window.addEventListener("scroll", () => {
             setPosition(getPosition());
+            setCurrentY(window.pageYOffset);
         });
     }, []);
 

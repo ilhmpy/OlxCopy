@@ -35,4 +35,9 @@ export const AppStylesProvider = createGlobalStyle`
     border: 0;
     outline: none;
   }
+  p {
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+  }
 `; 
