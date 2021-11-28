@@ -18,6 +18,7 @@ export const AppStylesProvider = createGlobalStyle`
     text-decoration: none;
     font-weight: 500;
     cursor: pointer;
+    color: #002f34;
   }
   h3 {
     margin: 0;
