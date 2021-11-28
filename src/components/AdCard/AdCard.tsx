@@ -41,6 +41,9 @@ const Card = styled.div`
     padding: 15px;
     position: relative;
     border-radius: 4px;
+    @media (max-width: 767px) {
+        margin: 0 auto;
+    }
     &:nth-child(4n) {
         margin-right: 0px;
     }
@@ -99,6 +102,9 @@ export const Prompt = styled.div<{ view: boolean; }>`
     z-index: 999;
     font-weight: 400;
     display: ${({ view }) => view ? "flex" : "none"};
+    @media (max-width: 767px) {
+        right: 10px;
+    }
     &::before {
         width: 0;
         height: 0;
@@ -110,6 +116,9 @@ export const Prompt = styled.div<{ view: boolean; }>`
         z-index: 9999;
         border-width: 10px 7px 0 7px;
         border-color: #3a77ff transparent transparent transparent;
+        @media (max-width: 767px) {
+            left: 97px;
+        }
     }
 `;
 

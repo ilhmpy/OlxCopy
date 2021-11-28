@@ -6,18 +6,20 @@ import { CountriesInput } from "../CountriesInput/CountriesInput";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { MediaBlock } from "../MediaBlock/MediaBlock";
 
 export const Search = () => {
     const [addsCount, setAddCount] = useState<number>(0);
     const [size, setSize] = useWindowSize();
+
     return (
         <Block>
             <Container> 
                 <Styled.SearchBlock>
                     <Input placeholder={`${addsCount} объявлений рядом`} maxWidth={752} mobilePaddingLeft={0}>
-                        {size > 767 && (
+                        <MediaBlock showMobile={false} view={"inline"} showDesctop={true}>
                             <Styled.SearchSVG />
-                        )}
+                        </MediaBlock>
                     </Input> 
                     <CountriesInput noneOnMobile />
                     <Button blackButton>
@@ -25,9 +27,9 @@ export const Search = () => {
                         <Styled.SearchSVG style={{ marginLeft: "60px" }} />
                     </Button>
                 </Styled.SearchBlock>
-                {size < 767 && (
+                <MediaBlock showDesctop={false} showMobile={true} view={"flex"}>
                     <CountriesInput opacityPlaceholder onlyOne />
-                )}
+                </MediaBlock>
             </Container>
         </Block>
     );

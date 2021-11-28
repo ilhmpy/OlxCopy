@@ -2,23 +2,23 @@ import styled from "styled-components";
 
 type MediaBlockProps = {
     showMobile: boolean;
-    desctopDisplay?: "flex" | "block"; 
+    view?: "flex" | "block" | "inline"; 
     showDesctop: boolean;
 }
 
 export const MediaBlock = styled.div<MediaBlockProps>`
-    ${({ showMobile, showDesctop, desctopDisplay }) => {
+    ${({ showMobile, showDesctop, view }) => {
         if (showMobile) {
             return `
                 display: none;
                 @media (max-width: 767px) {
-                    display: block;
+                    display: ${view ? view : "block"};
                 }  
             `;
         };
         if (showDesctop) {
             return `
-                display: ${desctopDisplay ? desctopDisplay : "block"};
+                display: ${view ? view : "block"};
                 @media (max-width: 767px) {
                     display: none;
                 }  

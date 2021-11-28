@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
-export const Button = styled.button<{ width?: number; height?: number; mobileBtn?: boolean; blackButton?: boolean; }>`
+type ButtonProps = {
+    width?: number;
+    height?: number; 
+    mobileBtn?: boolean; 
+    blackButton?: boolean;
+    little?: boolean;
+}
+
+export const Button = styled.button<ButtonProps>`
     width: ${({ width }) => width ? width : 196}px;
     height: ${({ height }) => height ? height : 46}px;
     display: flex;
@@ -8,6 +16,7 @@ export const Button = styled.button<{ width?: number; height?: number; mobileBtn
     justify-content: center;
     border-radius: 4px;
     transition: 0.5s;
+    position: relative;
     border: 5px solid #fff;
     background: #fff;
     & > span {
@@ -78,6 +87,17 @@ export const Button = styled.button<{ width?: number; height?: number; mobileBtn
                     }
                 }
            `; 
+        };
+    }}
+    ${({ little }) => {
+        if (little) {
+            return `
+                max-width: 177px;
+                & > span {
+                    font-size: 14px;
+                }
+                height: 40px;
+            `;
         };
     }}
 `;

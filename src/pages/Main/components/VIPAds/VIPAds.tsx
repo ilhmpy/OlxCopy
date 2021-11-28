@@ -38,7 +38,7 @@ export const VIPads = () => {
         <Block>
             <Container>
                 <H3>VIP-объявления</H3>
-                <MediaBlock showMobile={false} desctopDisplay={"flex"} showDesctop={true}>
+                <MediaBlock showMobile={false} view={"flex"} showDesctop={true}>
                     <FlexContainer>
                         {ads.map((i, idx) => (
                             <AdCard
