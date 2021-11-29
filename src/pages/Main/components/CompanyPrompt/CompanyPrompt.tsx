@@ -4,7 +4,6 @@ import * as Style from "./CompanyPrompt.styles";
 import { H3 } from "../../../../components/UI/H3";
 import { Button } from "../../../../components/Button/Button";
 import { MediaBlock } from "../../../../components/MediaBlock/MediaBlock";
-import styled from "styled-components";
 
 export const CompanyPrompt = () => {
     return (
@@ -17,10 +16,10 @@ export const CompanyPrompt = () => {
                         <H3 white>Посмотрите предложение OLX для бизнеса</H3>
                     </MediaBlock>
                     <MediaBlock showDesctop={false} showMobile={true}>
-                    <Button little>
-                        <span>Подробнее</span>
-                    </Button>
-                </MediaBlock>
+                        <Button little>
+                            <span>Подробнее</span>
+                        </Button>
+                    </MediaBlock>
                 </Style.TextContainer>
                 <MediaBlock showDesctop={true} showMobile={false}>
                     <Button little>

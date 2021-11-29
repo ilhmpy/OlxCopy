@@ -4,12 +4,11 @@ import { H3 } from "../../../../components/UI/H3";
 import { AdCard } from "../../../../components/AdCard/AdCard";
 import { useState } from "react";
 import test  from "../../../../assets/test.webp";
-import { useWindowSize } from "../../../../hooks/useWindowSize";
 import { FlexContainer } from "../../../../components/FlexContainer/FlexContainer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { MediaBlock } from "../../../../components/MediaBlock/MediaBlock";
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import 'swiper/swiper.min.css';
+import { breakpoints } from "../../../../consts/breakpoints";
 
 export const VIPads = () => {
     const [ads, setAds] = useState<any[]>([
@@ -51,14 +50,14 @@ export const VIPads = () => {
                         ))}
                     </FlexContainer>
                 </MediaBlock>
-                <MediaBlock showMobile={true} showDesctop={false}>
+                <MediaBlock showMobile={true} showDesctop={false} flexOverflow>
                     <Swiper 
                         navigation
                         slidesPerView={1} 
                         spaceBetween={30}
                         pagination={{ clickable: true }}
                         scrollbar={{ draggable: true }}
-
+                        breakpoints={breakpoints}
                     >
                         {ads.map((i, idx) => ( 
                             <SwiperSlide key={idx}>

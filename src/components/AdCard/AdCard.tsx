@@ -35,6 +35,7 @@ export const AdCard: FC<AdCardProps> = ({ img, desc, place, choosen }: AdCardPro
 const Card = styled.div`
     width: 100%;
     max-width: 298px;
+    min-width: 298px;
     height: 378px;
     background: #fff;
     margin-right: 15px;
@@ -118,7 +119,7 @@ export const Prompt = styled.div<{ view: boolean; }>`
         z-index: 9999;
         border-width: 10px 7px 0 7px;
         border-color: #3a77ff transparent transparent transparent;
-        @media (max-width: 767px) {
+        ${Media.Mobile} {
             left: 97px;
         }
     }

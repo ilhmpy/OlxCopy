@@ -12,6 +12,9 @@ export const SearchBlock = styled.div`
     ${Media.Mobile} {
         margin-bottom: 20px;
     }
+    ${Media.Tablet} {
+        padding-left: 20px;
+    }
 `;
 
 export const SearchSVG = styled(Search)`

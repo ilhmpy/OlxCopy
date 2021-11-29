@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { Media } from '../../consts/Media';
 
 type MediaBlockProps = {
     showMobile: boolean;
     view?: "flex" | "block" | "inline"; 
     showDesctop: boolean;
+    flexOverflow?: boolean;
 }
 
 export const MediaBlock = styled.div<MediaBlockProps>`
@@ -11,7 +13,7 @@ export const MediaBlock = styled.div<MediaBlockProps>`
         if (showMobile) {
             return `
                 display: none;
-                @media (max-width: 767px) {
+                ${Media.Mobile} {
                     display: ${view ? view : "block"};
                 }  
             `;
@@ -19,9 +21,16 @@ export const MediaBlock = styled.div<MediaBlockProps>`
         if (showDesctop) {
             return `
                 display: ${view ? view : "block"};
-                @media (max-width: 767px) {
+                ${Media.Mobile} {
                     display: none;
                 }  
+            `;
+        };
+    }}
+    ${({ flexOverflow }) => {
+        if (flexOverflow) {
+            return `
+
             `;
         };
     }}
