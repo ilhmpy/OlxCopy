@@ -12,7 +12,6 @@ export const AppStylesProvider = createGlobalStyle`
     height: auto;
     background: #f2f4f5;
     color: #002f34;
-    height: 5000px;
     font-family: "Roboto", Arial, sans-serif;
   }
   a {

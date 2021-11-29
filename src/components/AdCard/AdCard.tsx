@@ -43,6 +43,7 @@ const Card = styled.div`
     border-radius: 4px;
     @media (max-width: 767px) {
         margin: 0 auto;
+        margin-bottom: 30px;
     }
     &:nth-child(4n) {
         margin-right: 0px;

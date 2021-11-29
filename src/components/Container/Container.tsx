@@ -24,6 +24,10 @@ export const Container = styled.div<ContainerProps>`
                 @media (max-width: 767px) {
                     padding-top: 30px;
                 }
+                @media (max-width: 370px) {
+                    padding-left: 0px;
+                    padding-right: 0px;
+                }
             `;
         };
     }}

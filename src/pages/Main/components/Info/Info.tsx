@@ -7,7 +7,11 @@ import { ReactComponent as Tablet } from "../../../../assets/tablet.svg";
 
 export const Info = () => {
     return (
-        <Block borderBottom={"1px solid #7f9799"} padding={"62px 0px 90px 0px"}>
+        <Block 
+            borderBottom={"1px solid #7f9799"} 
+            padding={"62px 0px 90px 0px"} 
+            mobilePadding={"80px 0px 50px"}
+        >
             <Container>
                 <FlexContainer>
                     <Style.Item>

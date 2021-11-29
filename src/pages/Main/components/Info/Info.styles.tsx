@@ -9,6 +9,10 @@ export const Item = styled.div`
     &:first-child {
         margin-right: 60px;
     }
+    @media (max-width: 767px) {
+        margin-bottom: 50px;
+        margin-right: 0px;
+    }
 `;
 
 export const Img = styled.div`

@@ -10,7 +10,9 @@ type BlockProps = {
     styles?: string;
     marginBottom?: string;
     borderBottom?: string;
-}
+    mobilePadding?: string;
+    mobileMarginBottom?: number;
+};
 
 export const Block = styled.div<BlockProps>`
     width: 100%;
@@ -45,7 +47,15 @@ export const Block = styled.div<BlockProps>`
     }}
     ${({ styles }) => ( styles && styles )}
     @media (max-width: 767px) {
-        margin-bottom: ${({ withoutMarginBottom }) => withoutMarginBottom ? "0px" : "30px"};
+        padding: ${({ mobilePadding }) => mobilePadding};
+        margin-bottom: ${({ mobileMarginBottom }) => mobileMarginBottom ? mobileMarginBottom : "30"}px;
+        ${({ withoutMarginBottom }) => {
+            if (withoutMarginBottom) {
+                return `
+                    margin-bottom: 0px;
+                `;
+            }
+        }}
         ${({ paddingsMobile }) => {
             if (paddingsMobile) {
                 return `

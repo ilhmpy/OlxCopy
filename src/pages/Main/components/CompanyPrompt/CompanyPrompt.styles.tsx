@@ -14,6 +14,8 @@ export const TextContainer = styled.div`
 
 export const Graphic = styled(graphic)`
     margin-right: 70px;
+    min-width: 100px;
+    min-height: 100px;
     @media (max-width: 767px) {
         margin-right: 15px;
     }

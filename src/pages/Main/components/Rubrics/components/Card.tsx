@@ -32,6 +32,9 @@ const CardBox = styled.a`
         background: #002F34;
         color: #fff;
     }
+    @media (max-width: 767px) {
+        margin-right: 0px;
+    }
 `;
 
 const CardImg = styled.div<{ bgColor: string; }>`

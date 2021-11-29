@@ -46,7 +46,7 @@ export const Rubrics = () => {
         <Block>
             <Container white boxShadow>
                 <H3>Главные рубрики</H3>
-                <FlexContainer minHeight={430}>
+                <FlexContainer minHeight={430} mobileMargin={"0 auto"}>
                     {rubrics.map(({ img, desc, bgColor, href }, idx) => (
                         <Card key={idx} img={img} desc={desc} bgColor={bgColor} href={href} />
                     ))}

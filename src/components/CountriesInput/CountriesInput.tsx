@@ -26,10 +26,11 @@ export const CountriesInput: FC<CountriesInputProps> = ({ noneOnMobile, onlyOne,
 
 const CountriesContainer = styled.div<CountriesInputProps>`
     width: 100%;
-    max-width: 338px;
     height: inherit;
     display: flex;
+    max-width: 358px;
     @media (max-width: 767px) {
+        max-width: 100%;
         margin-bottom: 20px;
         ${({ noneOnMobile }) => {
             if (noneOnMobile) {
