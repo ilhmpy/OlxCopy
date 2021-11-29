@@ -67,7 +67,7 @@ export const Logo = styled(logo)`
 `;
 
 export const FontAwesomeBlock = styled.div<{ withoutMargin?: boolean; }>`
-    margin-right: ${({ withoutMargin }) => withoutMargin ? 0 : 15}px;
+    margin-right: ${({ withoutMargin }) => withoutMargin ? 0 : 30}px;
     & > i::before {
         font-size: 22px;
     }

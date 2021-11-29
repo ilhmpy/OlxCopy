@@ -9,6 +9,7 @@ type BlockProps = {
     padding?: string;
     styles?: string;
     marginBottom?: string;
+    borderBottom?: string;
 }
 
 export const Block = styled.div<BlockProps>`
@@ -25,6 +26,7 @@ export const Block = styled.div<BlockProps>`
     }}
     padding: ${({ padding }) => padding ? padding : ""};
     background: ${({ background }) => background ? background : ""};
+    border-bottom: ${({ borderBottom }) => borderBottom ? borderBottom : ""};
     ${({ center }) => {
         if (center) {
             return `
