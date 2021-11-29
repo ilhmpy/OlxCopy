@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Input } from "../Input/Input";
 import { FC } from "react";
+import { Media } from '../../consts/Media';
 
 type CountriesInputProps = {
     noneOnMobile?: boolean;
@@ -29,7 +30,7 @@ const CountriesContainer = styled.div<CountriesInputProps>`
     height: inherit;
     display: flex;
     max-width: 358px;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         max-width: 100%;
         margin-bottom: 20px;
         ${({ noneOnMobile }) => {

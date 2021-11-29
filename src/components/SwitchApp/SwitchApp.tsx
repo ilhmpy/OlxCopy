@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as GooglePlay } from "../../assets/googleplay.svg";
 import { ReactComponent as AppStore } from "../../assets/appstore.svg";
 import { useState } from "react";
+import { Media } from '../../consts/Media';
 
 export const SwitchApp = () => {
     const [desc, setDesc] = useState<string | undefined>();
@@ -10,17 +11,12 @@ export const SwitchApp = () => {
         setDesc(app);
     };
 
-    function handleMouseLeave() {
-        setDesc(undefined);
-    };
-
     const handles = {
         onMouseOver: (e: any) => handleMouseOver(e.currentTarget.dataset.app),
-        onMouseLeave: (e: any) => handleMouseLeave()
     }
 
     return (
-        <SwitchContainer>
+        <SwitchContainer onMouseLeave={() => setDesc(undefined)}>
             <GooglePlay data-app="Google Play" {...handles} />
             <AppStore data-app="App Store" {...handles} />
             <Desc>
@@ -34,13 +30,14 @@ export const SwitchApp = () => {
 };
 
 const SwitchContainer = styled.div`
+    height: 80px;
     & svg {
         cursor: pointer;
         width: 140px;
         height: 48px;
         margin-right: 10px;
     }
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         margin: 0 auto;
         margin-top: 15px;
     }

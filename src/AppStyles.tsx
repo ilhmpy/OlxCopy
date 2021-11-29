@@ -39,4 +39,7 @@ export const AppStylesProvider = createGlobalStyle`
     padding: 0;
     line-height: 20px;
   }
+  img, svg {
+    user-select: none;
+  }
 `; 

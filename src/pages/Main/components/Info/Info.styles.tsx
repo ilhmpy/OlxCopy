@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Media } from '../../../../consts/Media';
 
 export const Item = styled.div`
     width: auto;
@@ -9,7 +10,7 @@ export const Item = styled.div`
     &:first-child {
         margin-right: 60px;
     }
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         margin-bottom: 50px;
         margin-right: 0px;
     }

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as olx} from "../../../../assets/blackLogo.svg";
+import { Media } from '../../../../consts/Media';
 
 export const Olx = styled(olx)`
     margin: 0 auto;
@@ -46,6 +47,7 @@ export const Socials = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
 `;

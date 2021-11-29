@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react";
 import styled from "styled-components";
+import { Media } from '../../../../../consts/Media';
 
 type CardProps = {
     img: string;
@@ -32,7 +33,7 @@ const CardBox = styled.a`
         background: #002F34;
         color: #fff;
     }
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         margin-right: 0px;
     }
 `;
@@ -55,7 +56,7 @@ const CardDesc = styled.h3`
     font-weight: 500;
     margin: 0 auto;
     color: #002F34;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         font-size: .90em;
     }
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Media } from '../../consts/Media';
 
 type ContainerProps = {
     white?: boolean;
@@ -11,7 +12,7 @@ export const Container = styled.div<ContainerProps>`
     height: inherit !important;
     margin: 0 auto;
     position: relative;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         max-width: 85%;
     }
     ${({ white }) => {

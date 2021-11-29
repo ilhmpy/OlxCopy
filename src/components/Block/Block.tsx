@@ -1,4 +1,5 @@
 import styled from "styled-components";  
+import { Media } from '../../consts/Media';
 
 type BlockProps = {
     height?: number;
@@ -46,7 +47,7 @@ export const Block = styled.div<BlockProps>`
         };
     }}
     ${({ styles }) => ( styles && styles )}
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         padding: ${({ mobilePadding }) => mobilePadding};
         margin-bottom: ${({ mobileMarginBottom }) => mobileMarginBottom ? mobileMarginBottom : "30"}px;
         ${({ withoutMarginBottom }) => {

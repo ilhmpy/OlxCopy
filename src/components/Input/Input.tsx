@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FC, ReactNode } from "react";
+import { Media } from '../../consts/Media';
 
 type InputProps = {
     placeholder?: string;
@@ -53,7 +54,7 @@ export const InputBox = styled.div<{
         width: 25px;
         height: 25px;
     }
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         ${({ mobilePaddingLeft }) => {
             if (mobilePaddingLeft != undefined) {
                 return `
@@ -84,7 +85,7 @@ export const InputField = styled.input<{
     &::placeholder {
         color: #000;
         opacity: 80%;
-        @media (max-width: 767px) {
+        ${Media.Mobile} {
             ${({ opacityPlaceholder }) => {
                 if (!opacityPlaceholder) {
                     return `
@@ -94,7 +95,7 @@ export const InputField = styled.input<{
             }}
         }
     }
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         font-size: 13px;
         ${({ mobilePaddingLeft }) => {
             if (mobilePaddingLeft != undefined) {

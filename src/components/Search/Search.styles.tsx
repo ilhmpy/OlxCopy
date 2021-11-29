@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Search } from "../../assets/search.svg";
+import { Media } from '../../consts/Media';
 
 export const SearchBlock = styled.div`
     width: 100%;
@@ -8,7 +9,7 @@ export const SearchBlock = styled.div`
     margin-top: 120px;
     display: flex;
     align-items: center;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         margin-bottom: 20px;
     }
 `;

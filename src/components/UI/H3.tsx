@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Media } from '../../consts/Media';
 
 type H3Props = {
     silver?: boolean;
@@ -12,7 +13,7 @@ export const H3 = styled.h3<H3Props>`
     text-align: center;
     margin-bottom: 68px;
     font-family: 'Roboto', Arial, sans-serif !important;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         font-size: 1.30em;
         margin-bottom: 25px;
     }

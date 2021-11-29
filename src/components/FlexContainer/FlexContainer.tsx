@@ -1,15 +1,13 @@
 import styled from "styled-components";
+import { Media } from '../../consts/Media';
 
 export const FlexContainer = styled.div<{ minHeight?: number; mobileMargin?: any; }>`
     width: auto;
     display: flex;
     flex-wrap: wrap;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
        width: auto; 
        justify-content: center;
-    }
-    @media (max-width: 480px) {
-       
     }
     ${({ minHeight }) => {
         if (minHeight) {

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as logo } from "../../assets/logo.svg";
+import { Media } from '../../consts/Media';
  
 export const HeaderWrap = styled.div<{ position: "top" | "default"}>`
     width: 100%;
@@ -16,7 +17,7 @@ export const HeaderWrap = styled.div<{ position: "top" | "default"}>`
         display: flex;
         align-items: center;
     }
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         height: 60px;
     }
 `;
@@ -27,7 +28,7 @@ export const HeaderLinks = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         display: none;
     }
 `;
@@ -42,7 +43,7 @@ export const HeaderLink = styled.a`
     &:hover {
         color: #7F9799;
     }
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         justify-content: center;
         width: 100%;
         margin-right: 0;
@@ -59,7 +60,7 @@ export const Logo = styled(logo)`
     & path {
         fill: #23e5db;
     }
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         width: 45px;
         height: 45px;
         margin-left: 0;
@@ -81,7 +82,7 @@ export const MobileBar = styled.div`
         font-size: 25px;
     }
     color: #fff;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         display: flex;
     }
 `;
@@ -97,7 +98,7 @@ export const MobileBlock = styled.div`
     justify-content: center;
     bottom: 0;
     z-index: 11111;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         display: flex;
     }
 `;

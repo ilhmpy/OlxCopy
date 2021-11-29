@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { Media } from '../../consts/Media';
 
 export const SwitchLanguageComponent = () => {
     const [lang, setLang] = useLocalStorage("lang", "ru");
@@ -23,7 +24,7 @@ const SwitchLanguage = styled.div`
     display: flex;
     margin-right: 40px;
     position: relative;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         margin-right: 0;
     }
 `;

@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { Media } from '../../consts/Media';
 
 export const LinksBox = styled.div`
     display: flex;
     flex-direction: column;
     margin-right: 60px;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         margin-right: 0px;
         text-align: center;
         margin: 0 auto;

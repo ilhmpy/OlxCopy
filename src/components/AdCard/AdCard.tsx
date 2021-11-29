@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FC, useState } from 'react';
+import { Media } from "../../consts/Media";
 import moment from "moment";
 
 type AdCardProps = {
@@ -41,7 +42,7 @@ const Card = styled.div`
     padding: 15px;
     position: relative;
     border-radius: 4px;
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         margin: 0 auto;
         margin-bottom: 30px;
     }
@@ -103,7 +104,7 @@ export const Prompt = styled.div<{ view: boolean; }>`
     z-index: 999;
     font-weight: 400;
     display: ${({ view }) => view ? "flex" : "none"};
-    @media (max-width: 767px) {
+    ${Media.Mobile} {
         right: 10px;
     }
     &::before {
