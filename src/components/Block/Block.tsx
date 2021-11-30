@@ -12,6 +12,7 @@ type BlockProps = {
     marginBottom?: string;
     borderBottom?: string;
     mobilePadding?: string;
+    flexCenter?: boolean;
     mobileMarginBottom?: number;
 };
 
@@ -43,6 +44,15 @@ export const Block = styled.div<BlockProps>`
                     align-items: center;
                     display: flex;
                 }
+            `;
+        };
+    }}
+    ${({ flexCenter }) => {
+        if (flexCenter) {
+            return `
+                display: flex;
+                align-items: center;
+                justify-content: center;
             `;
         };
     }}

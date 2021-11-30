@@ -71,6 +71,9 @@ export const InputBox = styled.div<{
             };
         }}
     }
+    ${Media.Tablet} {
+        max-width: 100%;
+    }
 `;
 
 export const InputField = styled.input<{ 

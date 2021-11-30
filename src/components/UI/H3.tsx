@@ -26,7 +26,7 @@ export const H3 = styled.h3<H3Props>`
                 color: #7f9799;
                 display: flex;
                 margin-bottom: 8px;
-                @media (max-width: 767px) {
+                ${Media.Mobile} {
                     font-size: 1em;
                     margin-bottom: 8px;
                 }

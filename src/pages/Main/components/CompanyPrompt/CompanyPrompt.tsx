@@ -12,7 +12,10 @@ export const CompanyPrompt = () => {
                 <Style.Graphic />
                 <Style.TextContainer> 
                     <H3 silver>Выделяйтесь как компания!</H3>
-                    <MediaBlock showDesctop={true} showMobile={false}>
+                    <MediaBlock showDesctop={true} showMobile={false}> 
+                        <H3 white>Посмотрите предложение OLX для бизнеса</H3>
+                    </MediaBlock>
+                    <MediaBlock showDesctop={false} showMobile={false} showTablet={true}>
                         <H3 white>Посмотрите предложение OLX для бизнеса</H3>
                     </MediaBlock>
                     <MediaBlock showDesctop={false} showMobile={true}>

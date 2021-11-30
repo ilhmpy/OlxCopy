@@ -8,8 +8,12 @@ export const TextContainer = styled.div`
     justify-content: center;
     margin-right: 20px;
     ${Media.Mobile} {
-        justify-content: center;
-        align-items: center;
+        // justify-content: center;
+        // align-items: center;
+    }
+    ${Media.Tablet} {
+        justify-content: none;
+        align-items: start;
     }
 `;
 

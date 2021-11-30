@@ -6,7 +6,8 @@ type ButtonProps = {
     mobileBtn?: boolean; 
     blackButton?: boolean;
     little?: boolean;
-}
+    backgroundNone?: boolean;
+};
 
 export const Button = styled.button<ButtonProps>`
     width: ${({ width }) => width ? width : 196}px;
@@ -100,4 +101,55 @@ export const Button = styled.button<ButtonProps>`
             `;
         };
     }}
+    ${({ backgroundNone }) => {
+        if (backgroundNone) {
+            return `
+                width: 100%;
+                background: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #002f34;
+                max-width: 100%;
+                border-radius: 4px;
+                box-shadow: 0 0 0 2px #002f34;
+                font-size: 16px;
+                & i {
+                    font-size: 24px;
+                    color: #4259a6;
+                    display: flex;
+                    margin-right: 10px;
+                }
+                & > span { 
+                    width: 100%;
+                    align-items: center;
+                    display: flex;
+                    justify-content: center;
+                }
+                &:hover {
+                    background: none;
+                    & > span {
+                        color: #002f34;
+                    }
+                }
+            `;
+        };
+    }}
+`;
+
+export const BlackButton = styled.div`
+    width: 100%;
+    height: 39px;
+    color: #fff;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    background: #002F34;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 20px;
+    margin-bottom: 24px;
 `;
