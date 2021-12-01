@@ -1,4 +1,4 @@
-import styled from "styled-components";  
+import styled, { keyframes } from "styled-components";  
 import { Media } from '../../consts/Media';
 
 type BlockProps = {
@@ -14,7 +14,28 @@ type BlockProps = {
     mobilePadding?: string;
     flexCenter?: boolean;
     mobileMarginBottom?: number;
+    backgroundAnimate?: boolean;
 };
+
+const circle = keyframes`
+    0% {
+        width: 800px;
+        height: 800px;
+    }
+    50% {
+        width: 850px;
+        height: 850px;
+    }
+    80% {
+        width: 900px;
+        height: 900px;
+    }
+    100% {
+        width: 1000px;
+        height: 1000px;
+        background: red;
+    }
+`;
 
 export const Block = styled.div<BlockProps>`
     width: 100%;
@@ -57,6 +78,26 @@ export const Block = styled.div<BlockProps>`
         };
     }}
     ${({ styles }) => ( styles && styles )}
+    ${({ backgroundAnimate }) => {
+        if (backgroundAnimate) {
+            return `
+                overflow-y: hidden;
+                position: relative;
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    border: 150px solid #ceddff;
+                    width: 1000px;
+                    height: 1000px;
+                    border-radius: 50%;
+                    opacity: 1;
+                    animation: circle 1s ease-in-out 2s;
+                    animation-fill-mode: forwards;
+                }
+            `;
+        };
+    }}
     ${Media.Mobile} {
         padding: ${({ mobilePadding }) => mobilePadding};
         margin-bottom: ${({ mobileMarginBottom }) => mobileMarginBottom ? mobileMarginBottom : "30"}px;

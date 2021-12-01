@@ -6,7 +6,7 @@ import * as Style from "./Footer.styles";
 
 export const Footer = () => {
     return (
-        <Block mobileMarginBottom={110}>
+        <Block mobileMarginBottom={110} styles={`z-index: 999;`}>
             <Container> 
                 <FlexContainer>
                     <Style.LinksBox>
