@@ -7,7 +7,7 @@ type FieldProps = {
 }
 
 export const Field: FC<FieldProps> = ({ placeholder, type = "email" }: FieldProps) => {
-    return (
+    return ( 
         <FieldContainer>
             <FieldH3>{placeholder}</FieldH3>
             <FieldInput error={false} placeholder={placeholder} />

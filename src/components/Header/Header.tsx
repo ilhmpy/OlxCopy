@@ -1,13 +1,11 @@
 import { Container } from "../Container/Container";
 import * as Styled from "./Header.styles";
-import { useHistory } from "react-router-dom"; 
 import { useEffect, useState } from "react";
 import { Button } from "../Button/Button";
 import { MobileNav } from "./MobileNav";
 import { SwitchLanguageComponent as SwitchLanguage } from "../../components/SwitchLanguage/SwitchLanguage";
  
 export const Header = () => {
-    const history = useHistory();
     const [position, setPosition] = useState<"top" | "default">("default");
     const [currentY, setCurrentY] = useState<number>(0);
 
@@ -23,13 +21,13 @@ export const Header = () => {
             setCurrentY(window.pageYOffset);
         });
     }, []);
-
+  
     return (
         <>
             <Styled.HeaderWrap position={position}> 
                 <Container>
                     <Styled.Logo />
-                    <Styled.HeaderLinks>
+                    <Styled.HeaderLinks> 
                         <SwitchLanguage />
                         <Styled.HeaderLink>
                             <Styled.FontAwesomeBlock title="Избранные">
