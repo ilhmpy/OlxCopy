@@ -13,7 +13,7 @@ export const Auth = () => {
     };
 
     return (
-        <Block height={792} flexCenter background={"#3a77ff"} backgroundAnimate>
+        <Block height={920} borderBottom={"1px solid #7f9799"} flexCenter background={"#3a77ff"} backgroundAnimate>
             <Style.AuthContainer>
                 <Style.AuthTabButtons tab={tab}>
                     <Style.AuthTabButton active={tab === "auth"} onClick={handleTab}>Войти</Style.AuthTabButton>

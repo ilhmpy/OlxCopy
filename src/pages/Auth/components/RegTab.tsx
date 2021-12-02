@@ -12,12 +12,13 @@ export const RegTab = () => {
         <Style.Container>
             <Field error={emError} desc={descError} 
                   setDesc={setDescError} setError={setEmError} 
-                  placeholder="Укажите ваш email или номер телефона" 
+                  placeholder="Укажите ваш email или номер телефона"
+                  marginBottom={30} 
             />
             <Style.Flex>
                 <Checkbox />
                 <Style.Center notCenter>
-                    * Я соглашаюсь с правилами использования сервиса, а также с 
+                    * Я соглашаюсь <Style.A>с правилами использования сервиса</Style.A>, а также с 
                     передачей и обработкой моих данных в OLX.ua. Я подтверждаю своё совершеннолетие
                     и ответственность за размещение объявления
                 </Style.Center>

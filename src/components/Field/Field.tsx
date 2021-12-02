@@ -8,9 +8,10 @@ type FieldProps = {
     type?: "email" | "password";
     desc: string;
     setDesc: (val: string) => void;
+    marginBottom?: number;
 }
 
-export const Field: FC<FieldProps> = ({ placeholder, type = "email", error, setError, desc, setDesc }: FieldProps) => {
+export const Field: FC<FieldProps> = ({ placeholder, type = "email", error, setError, desc, setDesc, marginBottom }: FieldProps) => {
     const password = /(?=.*[0-9])/;
     const email = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
     const phoneNumber =  /^((8|\+[0-9])[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
@@ -57,7 +58,7 @@ export const Field: FC<FieldProps> = ({ placeholder, type = "email", error, setE
     };
 
     return ( 
-        <FieldContainer>
+        <FieldContainer marginBottom={marginBottom}>
             <FieldH3>{placeholder}</FieldH3>
             <FieldInput 
                 maxLength={18} 
@@ -70,10 +71,17 @@ export const Field: FC<FieldProps> = ({ placeholder, type = "email", error, setE
     );
 };
 
-const FieldContainer = styled.div`
+const FieldContainer = styled.div<{ marginBottom: number | undefined; }>`
     width: 100%;
     height: auto;
     margin-bottom: 20px;
+    ${({ marginBottom }) => {
+        if (marginBottom) {
+            return `
+                margin-bottom: ${marginBottom}px;
+            `;
+        }
+    }}
 `;
 
 const FieldInput = styled.input<{ error: boolean }>`
@@ -82,7 +90,13 @@ const FieldInput = styled.input<{ error: boolean }>`
     padding: 14px 16px;
     background: #F2F4F5;
     border-radius: 4px;
+    font-size: 16px;
+    color: #406367;
     ${({ error }) => error ? "box-shadow: 0 2px 0 0 #de1609;" : ""}
+    &::placeholder {
+        font-size: 16px;
+        color: #406367;
+    }
     &:focus {
         box-shadow: 0 2px 0 0 ${({ error }) => error ? "#de1609" : "#406367"};
     }

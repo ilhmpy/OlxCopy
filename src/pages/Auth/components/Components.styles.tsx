@@ -19,10 +19,19 @@ export const CantAuth = styled.a`
 export const Center = styled.div<{ notCenter?: boolean; }>`
     width: auto;
     margin: 0 auto;
-    text-align: ${({ notCenter }) => notCenter ? "left" : "center"};
+    text-align: center;
     color: #406367;
     font-size: 12px;
     font-weight: 400;
+    ${({ notCenter }) => {
+        if (notCenter) {
+            return `
+                text-align: left;
+                color: #71848d;  
+                margin-bottom: 10px;
+            `;
+        };
+    }}
 `;
 
 export const A = styled.a`    

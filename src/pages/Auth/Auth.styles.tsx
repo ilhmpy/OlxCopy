@@ -51,7 +51,7 @@ export const AuthOrBorder = styled.div`
     width: 100%;
     display: flex;
     background: #d8dfe0;
-    margin-top: 40px;
+    margin-top: 30px;
     height: 1px;
     align-items: center;
     justify-content: center;

@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";  
+import styled, { keyframes, css } from "styled-components";  
 import { Media } from '../../consts/Media';
 
 type BlockProps = {
@@ -18,22 +18,13 @@ type BlockProps = {
 };
 
 const circle = keyframes`
-    0% {
-        width: 800px;
-        height: 800px;
+    from {
+        width: 0px;
+        height: 0px;
     }
-    50% {
-        width: 850px;
-        height: 850px;
-    }
-    80% {
-        width: 900px;
-        height: 900px;
-    }
-    100% {
-        width: 1000px;
-        height: 1000px;
-        background: red;
+    to {
+        width: 960px;
+        height: 960px;
     }
 `;
 
@@ -80,7 +71,7 @@ export const Block = styled.div<BlockProps>`
     ${({ styles }) => ( styles && styles )}
     ${({ backgroundAnimate }) => {
         if (backgroundAnimate) {
-            return `
+            return css`
                 overflow-y: hidden;
                 position: relative;
                 &::before {
@@ -88,11 +79,11 @@ export const Block = styled.div<BlockProps>`
                     display: block;
                     position: absolute;
                     border: 150px solid #ceddff;
-                    width: 1000px;
-                    height: 1000px;
+                    transition: 2s ease;
+                    width: 0px;
+                    height: 0px;
                     border-radius: 50%;
-                    opacity: 1;
-                    animation: circle 1s ease-in-out 2s;
+                    animation: ${circle} 2s ease-in-out;
                     animation-fill-mode: forwards;
                 }
             `;

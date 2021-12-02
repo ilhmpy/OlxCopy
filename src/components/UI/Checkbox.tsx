@@ -16,6 +16,7 @@ const CheckboxContainer = styled.div<{ active: boolean; }>`
     margin-right: 20px;
     border-radius: 4px;
     border: 2px solid #002f34;
+    display: inline-block;
     position: relative;
     background: ${({ active }) => active ? "#002f34" : ""};
     cursor: pointer;
