@@ -4,7 +4,7 @@ import * as Style from "./Components.styles";
 import { useState } from "react";
 
 export const AuthTab = () => {
-    const [emError, setEmError] = useState<boolean>(true);
+    const [emError, setEmError] = useState<boolean>(false);
     const [pasError, setPasError] = useState<boolean>(false);
     const [descEmError, setDescEmError] = useState<string>("Поле обязательно для заполнения");
     const [descPasError, setDescPasError] = useState<string>("Поле обязательно для заполнения");

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 
 export const Checkbox = () => {
-    const [active, setActive] = useState<boolean>(true);
+    const [active, setActive] = useState<boolean>(false);
     return ( 
         <CheckboxContainer onClick={() => setActive(!active)} active={active} />
     );

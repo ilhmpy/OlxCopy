@@ -53,10 +53,10 @@ export const HeaderLink = styled.a`
 `;
 
 export const Logo = styled(logo)`
-    width: 71px;
-    height: 41px;
+    width: 75px;
+    height: 45px;
     cursor: pointer;
-    margin-left: -3px;
+    margin-left: -6px;
     & path {
         fill: #23e5db;
     }

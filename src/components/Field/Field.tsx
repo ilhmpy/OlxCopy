@@ -11,16 +11,17 @@ type FieldProps = {
 }
 
 export const Field: FC<FieldProps> = ({ placeholder, type = "email", error, setError, desc, setDesc }: FieldProps) => {
-    const password = /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g;
+    const password = /(?=.*[0-9])/;
     const email = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-    const phoneNumber =  /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+    const phoneNumber =  /^((8|\+[0-9])[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
 
     const descs = [
         "Поле обязательно для заполнения",
         "Неправильный формат email или номера телефона",
+        "Неверный формат пароля"
     ];
 
-    function handleChange(val: string) {
+    function handleChangeEmail(val: string) {
         if (val.length > 0) {
             if (email.test(val)) {
                 setError(false);
@@ -31,7 +32,7 @@ export const Field: FC<FieldProps> = ({ placeholder, type = "email", error, setE
                     setDesc(descs[0]);
                 } else {
                     setError(true);
-                    setDesc(type === "email" ? descs[0] : "");
+                    setDesc(descs[1]);
                 };
             };
         } else {
@@ -40,10 +41,30 @@ export const Field: FC<FieldProps> = ({ placeholder, type = "email", error, setE
         };  
     };
 
+    function handleChangePassword(val: string) {
+        if (val.length > 0) {
+            if (password.test(val)) {
+                setError(false);
+                setDesc(descs[0]);
+            } else {
+                setError(true);
+                setDesc(descs[2]);
+            };
+        } else {
+            setError(true);
+            setDesc(descs[0]);
+        };
+    };
+
     return ( 
         <FieldContainer>
             <FieldH3>{placeholder}</FieldH3>
-            <FieldInput maxLength={18} onChange={(e) => handleChange(e.target.value)} error={error} placeholder={placeholder} />
+            <FieldInput 
+                maxLength={18} 
+                type={type === "password" ? type : ""}
+                onChange={(e) => type === "email" ? handleChangeEmail(e.target.value) : handleChangePassword(e.target.value)} 
+                error={error} placeholder={placeholder} 
+            />
             <Valid error={error}>{desc}</Valid>
         </FieldContainer>
     );
