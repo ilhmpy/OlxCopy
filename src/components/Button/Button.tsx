@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Media } from "../../consts/Media";
 
 type ButtonProps = {
     width?: number;
@@ -7,11 +8,15 @@ type ButtonProps = {
     blackButton?: boolean;
     little?: boolean;
     backgroundNone?: boolean;
+    maxWidth?: string;
+    fontSize?: number;
+    right?: boolean;
 };
 
 export const Button = styled.button<ButtonProps>`
     width: ${({ width }) => width ? width : 196}px;
     height: ${({ height }) => height ? height : 46}px;
+    max-width: ${({ maxWidth }) => maxWidth != undefined ? maxWidth : "100%"};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +44,7 @@ export const Button = styled.button<ButtonProps>`
         if (mobileBtn) {
             return `
                 display: none;
-                @media (max-width: 767px) {
+                ${Media.Mobile} {
                     display: flex;
                     position: absolute;
                     right: 0;
@@ -101,7 +106,7 @@ export const Button = styled.button<ButtonProps>`
             `;
         };
     }}
-    ${({ backgroundNone }) => {
+    ${({ backgroundNone, maxWidth, height, fontSize, right }) => {
         if (backgroundNone) {
             return `
                 width: 100%;
@@ -110,10 +115,17 @@ export const Button = styled.button<ButtonProps>`
                 align-items: center;
                 justify-content: center;
                 color: #002f34;
-                max-width: 100%;
+                max-width: ${maxWidth != undefined ? maxWidth : "100%"};
+                height: ${height ? height : 46}px;
+                font-size: ${fontSize != undefined ? fontSize : "16"}px !important;
                 border-radius: 4px;
                 box-shadow: 0 0 0 2px #002f34;
-                font-size: 16px;
+                ${right && `
+                    position: absolute;
+                    right: 0px;
+                    top: 55px;
+                    border: 0px solid #fff;
+                `}
                 & i {
                     font-size: 24px;
                     color: #4259a6;
@@ -125,6 +137,7 @@ export const Button = styled.button<ButtonProps>`
                     align-items: center;
                     display: flex;
                     justify-content: center;
+                    font-size: ${fontSize != undefined ? fontSize : "16"}px !important
                 }
                 &:hover {
                     background: none;
@@ -136,6 +149,8 @@ export const Button = styled.button<ButtonProps>`
         };
     }}
 `;
+
+
 
 export const BlackButton = styled.div`
     width: 100%;

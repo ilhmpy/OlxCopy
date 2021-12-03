@@ -4,11 +4,18 @@ import styled from "styled-components";
 type CardProps = {
     icon: string | null;
     children: ReactNode;
+    path?: string | undefined;
 }
 
-export const Card = ({ icon, children }: CardProps) => {
+export const Card = ({ icon, children, path }: CardProps) => {
+    const handlePath = () => {
+        if (path) {
+            window.location.href = path;
+        };
+    };
+
     return (
-        <MobileNavCard card>
+        <MobileNavCard card onClick={handlePath}>
             <MobileNavCard icon>
                 {icon && <i className={icon}></i>}
             </MobileNavCard>

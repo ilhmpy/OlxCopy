@@ -1,13 +1,27 @@
-import { Route, Routes, useRoutes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import { Main } from "./pages/Main/Main";
-import { Header } from "./components/Header/Header";
-import { Footer } from "./components/Footer/Footer";
 import { Auth } from './pages/Auth/Auth';
+import { Favorites } from "./pages/Favorites/Favorites";
+import { PageTitle } from "./components/PageTitle/PageTitle";
+import { Routes } from "./consts/routes";
 
 function App() {   
   const routing = useRoutes([
-    { path: "/", element: <Main /> },
-    { path: "/auth", element: <Auth /> }
+    { path: Routes.Main, element: (
+      <PageTitle title={"Главная"}>
+        <Main />
+      </PageTitle>
+    ) },
+    { path: Routes.Auth, element: (
+      <PageTitle title={"Авторизация"}>
+        <Auth /> 
+      </PageTitle>
+    )},
+    { path: Routes.Fav, element: (
+      <PageTitle title="Избранные объявления">
+        <Favorites /> 
+      </PageTitle>
+    )},
   ]);
   return routing;
 } 

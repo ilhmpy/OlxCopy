@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as logo } from "../../assets/logo.svg";
 import { Media } from '../../consts/Media';
  
-export const HeaderWrap = styled.div<{ position: "top" | "default"}>`
+export const HeaderWrap = styled.header<{ position: "top" | "default"}>`
     width: 100%;
     background: #002f34;
     transition: transform 0.5s cubic-bezier(0.8, 0.2, 0.2, 0.8);
@@ -70,7 +70,7 @@ export const Logo = styled(logo)`
 export const FontAwesomeBlock = styled.div<{ withoutMargin?: boolean; }>`
     margin-right: ${({ withoutMargin }) => withoutMargin ? 0 : 15}px;
     & > i::before {
-        font-size: 22px;
+        font-size: 19px;
     }
 `;
 

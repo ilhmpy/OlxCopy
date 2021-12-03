@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "../Button/Button";
 import { MobileNav } from "./MobileNav";
 import { SwitchLanguageComponent as SwitchLanguage } from "../../components/SwitchLanguage/SwitchLanguage";
+import { Routes } from "../../consts/routes";
  
 export const Header = () => {
     const [position, setPosition] = useState<"top" | "default">("default");
@@ -21,12 +22,16 @@ export const Header = () => {
             setCurrentY(window.pageYOffset);
         });
     }, []);
-  
+
+    function handleAddAd() {
+        window.location.href = Routes.Auth;
+    };
+
     return (
         <>
             <Styled.HeaderWrap position={position}> 
                 <Container>
-                    <Styled.Logo />
+                    <Styled.Logo onClick={() => window.location.href = "/"} />
                     <Styled.HeaderLinks> 
                         <SwitchLanguage />
                         <Styled.HeaderLink>
@@ -36,7 +41,7 @@ export const Header = () => {
                             Сообщения
                         </Styled.HeaderLink>
                         <Styled.HeaderLink>
-                            <Styled.FontAwesomeBlock withoutMargin>
+                            <Styled.FontAwesomeBlock onClick={() => window.location.href = Routes.Fav} withoutMargin>
                                 <i className="far fa-heart"></i>
                             </Styled.FontAwesomeBlock>
                         </Styled.HeaderLink>
@@ -46,7 +51,7 @@ export const Header = () => {
                             </Styled.FontAwesomeBlock>
                             Мой профиль
                         </Styled.HeaderLink>
-                        <Button>
+                        <Button onClick={handleAddAd}>
                             <span>Подать объявление</span>
                         </Button>
                     </Styled.HeaderLinks>

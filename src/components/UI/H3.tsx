@@ -4,6 +4,7 @@ import { Media } from '../../consts/Media';
 type H3Props = {
     silver?: boolean;
     white?: boolean;
+    left?: boolean;
 };
 
 export const H3 = styled.h3<H3Props>`
@@ -13,6 +14,7 @@ export const H3 = styled.h3<H3Props>`
     text-align: center;
     margin-bottom: 68px;
     font-family: 'Roboto', Arial, sans-serif !important;
+    ${({ left }) => left && `text-align: left;`}
     ${Media.Mobile} {
         font-size: 1.30em;
         margin-bottom: 25px;
