@@ -5,6 +5,7 @@ type H3Props = {
     silver?: boolean;
     white?: boolean;
     left?: boolean;
+    center?: boolean;
 };
 
 export const H3 = styled.h3<H3Props>`
@@ -14,7 +15,11 @@ export const H3 = styled.h3<H3Props>`
     text-align: center;
     margin-bottom: 68px;
     font-family: 'Roboto', Arial, sans-serif !important;
-    ${({ left }) => left && `text-align: left;`}
+    ${({ left }) => left && `text-align: left; margin-bottom: 33px;`}
+    ${({ center }) => center && `text-align: center; 
+                                 font-size: 20px; 
+                                 line-height: 1.1px; 
+                                 margin-bottom: 20px; `}
     ${Media.Mobile} {
         font-size: 1.30em;
         margin-bottom: 25px;

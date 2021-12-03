@@ -6,14 +6,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { AppStylesProvider } from "./AppStyles";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
+import { AppContext } from "./context/AppContext/AppContext";
 
 ReactDOM.render( 
   <React.StrictMode>
     <AppStylesProvider />
     <Router>
-      <Header />
-      <App />
-      <Footer />
+        <Header />
+        <App />
+        <Footer />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

@@ -21,7 +21,7 @@ export const Auth = () => {
                 </Style.AuthTabButtons>
                 <Style.AuthContent>
                     <Button backgroundNone>
-                        <span><i className="fab fa-facebook-square"></i> Вход с Facebook</span>
+                        <span><Style.I className="fab fa-facebook-square" /> Вход с Facebook</span>
                     </Button>
                     <Style.AuthOrBorder />
                     {tab == "auth" && <AuthTab />}

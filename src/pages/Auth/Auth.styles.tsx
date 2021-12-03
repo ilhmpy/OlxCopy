@@ -68,3 +68,11 @@ export const AuthOrBorder = styled.div`
         height: 15px;
     }
 `;
+
+export const I = styled.i`
+    font-size: 24px;
+    color: #4259a6;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+`;

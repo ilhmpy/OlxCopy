@@ -126,17 +126,11 @@ export const Button = styled.button<ButtonProps>`
                     top: 55px;
                     border: 0px solid #fff;
                 `}
-                & i {
-                    font-size: 24px;
-                    color: #4259a6;
-                    display: flex;
-                    margin-right: 10px;
-                }
                 & > span { 
                     width: 100%;
                     align-items: center;
                     display: flex;
-                    justify-content: center;
+                    height: inherit;
                     font-size: ${fontSize != undefined ? fontSize : "16"}px !important
                 }
                 &:hover {
