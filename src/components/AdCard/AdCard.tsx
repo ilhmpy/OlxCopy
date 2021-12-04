@@ -8,9 +8,10 @@ type AdCardProps = {
     desc: string;
     place: any;
     choosen: boolean;
-}
+    onHeart?: () => void;
+};
 
-export const AdCard: FC<AdCardProps> = ({ img, desc, place, choosen }: AdCardProps) => {
+export const AdCard: FC<AdCardProps> = ({ img, desc, place, choosen, onHeart }: AdCardProps) => {
     const [view, setView] = useState<boolean>(false);
 
     function handleMouse() {
@@ -25,6 +26,7 @@ export const AdCard: FC<AdCardProps> = ({ img, desc, place, choosen }: AdCardPro
             <CardPrice>{place.price} грн.</CardPrice>
             <Prompt view={view}>В избранные</Prompt>
             <CardHeart 
+                onClick={onHeart}
                 onMouseOver={handleMouse} onMouseOut={handleMouse} 
                 className="far fa-heart" choosen={choosen} 
             />

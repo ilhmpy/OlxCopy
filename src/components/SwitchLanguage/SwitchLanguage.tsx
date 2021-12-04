@@ -6,7 +6,7 @@ export const SwitchLanguageComponent = () => {
     const [lang, setLang] = useLocalStorage("lang", "ru");
     
     function handleChangeLanguage(lang: "ru" | "ua") {
-        setLang(lang);
+      setLang(lang);
     };
     
     return (

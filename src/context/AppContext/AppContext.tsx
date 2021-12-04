@@ -5,16 +5,16 @@ import { ReactNode, FC } from "react";
 
 type AppContextFields = {
     favorites: FavoritesViewModel[];
-    setFavorites: (val: FavoritesViewModel) => any;
+    setFavorites: (val: FavoritesViewModel[]) => any;
 };
 
 type AppContextProviderType = {
     children: ReactNode;
 };
 
-const AppContext = createContext<AppContextFields>({
+export const AppContext = createContext<AppContextFields>({
     favorites: [],
-    setFavorites: (val: FavoritesViewModel) => undefined,
+    setFavorites: (val: FavoritesViewModel[]) => undefined,
 });
 
 export const AppContextProvider: FC<AppContextProviderType> = ({ children }: AppContextProviderType) => {
@@ -23,7 +23,7 @@ export const AppContextProvider: FC<AppContextProviderType> = ({ children }: App
     return (
         <AppContext.Provider value={{
             favorites,
-            setFavorites
+            setFavorites,
         }}>
             {children}
         </AppContext.Provider>

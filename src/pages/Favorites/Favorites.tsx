@@ -7,12 +7,7 @@ import { ReactComponent as Heart } from "../../assets/heart.svg";
 import { When } from "../../components/When/When";
 
 export const Favorites = () => {
-    const arr = [1, 2, 3, 4, 5];
-    const red = arr.reduce((previousValue: number, currentValue: number, index: number, array: any) => {
-        console.log(previousValue, currentValue, index, array)
-        return previousValue + currentValue;
-    })
-    console.log(red);
+
     return (
         <Block 
             styles={`padding-top: 72px;`} background={"#fff"} 
