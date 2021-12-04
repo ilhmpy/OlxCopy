@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FC, useState } from 'react';
+import { FC, useState, useContext } from 'react';
 import { Media } from "../../consts/Media";
 import moment from "moment";
 
@@ -24,11 +24,12 @@ export const AdCard: FC<AdCardProps> = ({ img, desc, place, choosen, onHeart }: 
             <CardDesc href="">{desc}</CardDesc>
             <CardPlace>{place.city}, Вчера - {moment(place.time).format("HH:MM")}</CardPlace>
             <CardPrice>{place.price} грн.</CardPrice>
-            <Prompt view={view}>В избранные</Prompt>
+            <Prompt choosen={choosen} view={view}>{choosen ? "В избранные" : "Удалить из избранных"}</Prompt>
             <CardHeart 
                 onClick={onHeart}
                 onMouseOver={handleMouse} onMouseOut={handleMouse} 
-                className="far fa-heart" choosen={choosen} 
+                className={choosen ? "far fa-heart" : "fas fa-heart"}
+                choosen={choosen}
             />
         </Card>
     );  
@@ -90,20 +91,22 @@ const CardPrice = styled.h3`
     font-weight: 500;
 `;
 
-export const Prompt = styled.div<{ view: boolean; }>`
+export const Prompt = styled.div<{ view: boolean; choosen: boolean; }>`
     position: absolute;
     background: #3a77ff;
     margin-bottom: 10px;
     min-height: 40px;
     color: #fff;
-    width: 120px;
+    width: auto;
+    padding: 10px;
+    min-width: 120px;
     justify-content: center;
     align-items: center;
     line-height: 1.29;
     border-radius: 4px;
     font-size: 14px;
     bottom: 42px;
-    right: -75px;
+    right: ${({ choosen }) => choosen ? "-75px" : "-122px"};
     z-index: 999;
     font-weight: 400;
     display: ${({ view }) => view ? "flex" : "none"};
@@ -123,6 +126,13 @@ export const Prompt = styled.div<{ view: boolean; }>`
         border-color: #3a77ff transparent transparent transparent;
         ${Media.Mobile} {
             left: 97px;
+            ${({ choosen }) => {
+                if (!choosen) {
+                    return `
+                        left: 145px;
+                    `;
+                };
+            }}
         }
     }
 `;
@@ -131,7 +141,7 @@ const CardHeart = styled.i<{ choosen: boolean; }>`
     position: absolute;
     right: 0;
     font-size: 22px;
-    color: #c6c6c6;
+    color: ${({ choosen }) => choosen ? "inherit" : "#c6c6c6"};
     cursor: pointer;
     bottom: 15px;
     right: 15px;

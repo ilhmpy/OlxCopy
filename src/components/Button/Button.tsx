@@ -11,6 +11,7 @@ type ButtonProps = {
     maxWidth?: string;
     fontSize?: number;
     right?: boolean;
+    display?: boolean;
 };
 
 export const Button = styled.button<ButtonProps>`
@@ -106,12 +107,12 @@ export const Button = styled.button<ButtonProps>`
             `;
         };
     }}
-    ${({ backgroundNone, maxWidth, height, fontSize, right }) => {
+    ${({ backgroundNone, maxWidth, height, fontSize, right, display }) => {
         if (backgroundNone) {
             return `
                 width: 100%;
                 background: none;
-                display: flex;
+                display: ${display ? "flex" : "none"};
                 align-items: center;
                 justify-content: center;
                 color: #002f34;
@@ -127,7 +128,6 @@ export const Button = styled.button<ButtonProps>`
                     border: 0px solid #fff;
                 `}
                 & > span { 
-                    width: 100%;
                     align-items: center;
                     display: flex;
                     height: inherit;

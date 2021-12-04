@@ -5,8 +5,15 @@ import { H3 } from "../../components/UI/H3";
 import { Button } from "../../components/Button/Button";
 import { ReactComponent as Heart } from "../../assets/heart.svg";
 import { When } from "../../components/When/When";
+import { AppContext } from "../../context/AppContext/AppContext";
+import { useContext } from "react";
 
 export const Favorites = () => {
+    const { favorites, setFavorites} = useContext(AppContext);
+
+    function onClear() {
+        setFavorites([]);
+    };
 
     return (
         <Block 
@@ -16,7 +23,11 @@ export const Favorites = () => {
             <Style.Header>
                 <Container>
                     <H3 left>Избранные объявления</H3>
-                    <Button maxWidth={"189px"} right height={38} fontSize={14} backgroundNone>
+                    <Button 
+                        onClick={onClear}
+                        display={favorites.length > 0} 
+                        maxWidth={"189px"} right height={38} fontSize={14} backgroundNone
+                    >
                         <span>Очистить избранные</span>
                     </Button>
                     <Style.Links>
@@ -26,7 +37,7 @@ export const Favorites = () => {
             </Style.Header>
             <Style.Content>
                 <Container>
-                    <When when={false}>
+                    <When when={!(favorites.length > 0)}>
                         <Style.NotAds>
                             <Heart />
                             <H3 center>Нет избранных объявлений</H3>
@@ -37,7 +48,9 @@ export const Favorites = () => {
                             </p>
                         </Style.NotAds>
                     </When>
-                    <When when={false}></When>
+                    <When when={favorites.length > 0}>
+
+                    </When>
                 </Container>
             </Style.Content>
         </Block>

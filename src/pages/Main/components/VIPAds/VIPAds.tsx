@@ -11,6 +11,7 @@ import 'swiper/swiper.min.css';
 import { breakpoints } from "../../../../consts/breakpoints";
 import { FavoritesViewModel } from "../../../../types/favorites";
 import { AppContext } from "../../../../context/AppContext/AppContext";
+import { unical } from "../../../../utils/unical";
  
 export const VIPads = () => {
     const [ads, setAds] = useState<FavoritesViewModel[]>([
@@ -36,13 +37,9 @@ export const VIPads = () => {
     ]);
     const { favorites, setFavorites } = useContext(AppContext);
 
-    function unical(id: number) {
-        return !(favorites.filter((i) => i.id === id).length > 0);
-    };
-
     function onHeart(id: number) {
-        setFavorites(unical(id) ? [...favorites, ads[id]] : favorites);
-    };
+        setFavorites(unical(id, favorites) ? [...favorites, ads[id]] : favorites.filter((i) => i.id !== id));
+    }; 
     
     return (
         <Block>
@@ -57,7 +54,7 @@ export const VIPads = () => {
                                 img={i.img} 
                                 desc={i.desc} 
                                 place={i.place} 
-                                choosen={true}
+                                choosen={unical(i.id, favorites)}
                             />
                         ))}
                     </FlexContainer>
@@ -78,7 +75,7 @@ export const VIPads = () => {
                                     img={i.img} 
                                     desc={i.desc} 
                                     place={i.place} 
-                                    choosen={true}
+                                    choosen={unical(i.id, favorites)}
                                 />
                             </SwiperSlide>
                         ))}

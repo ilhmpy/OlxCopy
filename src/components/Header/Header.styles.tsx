@@ -67,11 +67,41 @@ export const Logo = styled(logo)`
     }
 `;
 
-export const FontAwesomeBlock = styled.div<{ withoutMargin?: boolean; }>`
+export const FontAwesomeBlock = styled.div<{ withoutMargin?: boolean; heart?: boolean; countHeart?: number; }>`
     margin-right: ${({ withoutMargin }) => withoutMargin ? 0 : 15}px;
+    display: block;
+    position: relative;
     & > i::before {
         font-size: 19px;
     }
+    ${({ heart, countHeart }) => {
+        if (heart && countHeart) {
+            return `
+                & > i::after {
+                    content: "${countHeart}";
+                    font-family: "Roboto", Arial, sans-serif;
+                    position: absolute;
+                    left: 100%;
+                    right: -11px;
+                    top: -11px;
+                    font-weight: 400;
+                    font-size: 11px;
+                    margin-left: -5px;
+                    background: #2769ff;
+                    color: #fff;
+                    padding-top: 1px;
+                    box-sizing: border-box;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    line-height: 1;  
+                }
+            `;
+        };
+    }}
 `;
 
 export const MobileBar = styled.div`

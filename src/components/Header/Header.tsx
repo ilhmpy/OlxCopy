@@ -1,14 +1,16 @@
 import { Container } from "../Container/Container";
 import * as Styled from "./Header.styles";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Button } from "../Button/Button";
 import { MobileNav } from "./MobileNav";
 import { SwitchLanguageComponent as SwitchLanguage } from "../../components/SwitchLanguage/SwitchLanguage";
 import { Routes } from "../../consts/routes";
- 
+import { AppContext } from "../../context/AppContext/AppContext";
+
 export const Header = () => {
     const [position, setPosition] = useState<"top" | "default">("default");
     const [currentY, setCurrentY] = useState<number>(0);
+    const { favorites, setFavorites } = useContext(AppContext);
 
     function getPosition() {
         return window.pageYOffset > currentY ? "top" : "default";
@@ -41,7 +43,7 @@ export const Header = () => {
                             Сообщения
                         </Styled.HeaderLink>
                         <Styled.HeaderLink>
-                            <Styled.FontAwesomeBlock onClick={() => window.location.href = Routes.Fav} withoutMargin>
+                            <Styled.FontAwesomeBlock heart countHeart={favorites.length} onClick={() => window.location.href = Routes.Fav} withoutMargin>
                                 <i className="far fa-heart"></i>
                             </Styled.FontAwesomeBlock>
                         </Styled.HeaderLink>
