@@ -5,8 +5,8 @@ export const useLocalStorage = (key: any, initial: any) => {
     const lang = localStorage.getItem("lang");
     
     useEffect(() => {
-        localStorage.setItem(key, value);
+        localStorage.setItem(key, JSON.stringify(value));
     }, [key, value, lang]);
     
-    return [value, setValue];
+    return [JSON.parse(value), setValue];
 };

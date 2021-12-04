@@ -21,10 +21,17 @@ const circle = keyframes`
     from {
         width: 0px;
         height: 0px;
+        opacity: 10%;
+    }
+    90% {
+        width: 1050px;
+        height: 1050px;
+        opacity: 90%;
     }
     to {
-        width: 960px;
-        height: 960px;
+        opacity: 100%;
+        width: 930px;
+        height: 930px;
     }
 `;
 
