@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Media } from "../../consts/Media";
 
 export const Header = styled.header`
     width: 100%;
@@ -10,9 +11,13 @@ export const Header = styled.header`
 export const Content = styled.div`
     width: 100%;
     min-height: 640px;
+    padding-top: 20px;
     display: flex;
-    align-items: center;
     background: #f2f4f5;
+    ${Media.Mobile} {
+        padding-top: 30px;
+        min-height: auto;
+    }
 `;
 
 export const Links = styled.div`
@@ -35,10 +40,8 @@ export const NotAds = styled.div`
     width: 100%;
     max-width: 1238px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding-top: 10%;
+    height: inherit;
     & p {
         font-size: 16px;
         line-height: 1.25;
@@ -47,5 +50,8 @@ export const NotAds = styled.div`
     }
     & svg {
         margin-bottom: 40px;
+    }
+    ${Media.Mobile} {
+        margin-bottom: 30%;
     }
 `;

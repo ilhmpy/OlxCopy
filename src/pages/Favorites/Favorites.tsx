@@ -7,12 +7,36 @@ import { ReactComponent as Heart } from "../../assets/heart.svg";
 import { When } from "../../components/When/When";
 import { AppContext } from "../../context/AppContext/AppContext";
 import { useContext } from "react";
+import { TypeList } from "../../components/TypeList/TypeList";
+import { FlexContainer } from "../../components/FlexContainer/FlexContainer";
+import { AdCard } from "../../components/AdCard/AdCard";
+import { unical } from "../../utils/unical";
+import { MediaBlock } from '../../components/MediaBlock/MediaBlock';
+import { useState } from "react";
+import 'swiper/swiper.min.css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { breakpoints } from "../../consts/breakpoints";
 
 export const Favorites = () => {
-    const { favorites, setFavorites} = useContext(AppContext);
+    const { favorites, setFavorites, setCall, setText } = useContext(AppContext);
+    const [type, setType] = useState<"blocks" | "list">("list");
 
     function onClear() {
         setFavorites([]);
+    };
+
+    function onHeart(id: number) {
+        setFavorites(favorites.filter((i) => i.id !== id));
+        setCall(true);
+        setText("Удаленно из избранных");
+    }; 
+
+    const buttonProps = {
+        onClick: onClear,
+        display: favorites.length > 0,
+        maxWidth: "189px", 
+        height: 38, 
+        fontSize: 14, 
     };
 
     return (
@@ -23,15 +47,11 @@ export const Favorites = () => {
             <Style.Header>
                 <Container>
                     <H3 left>Избранные объявления</H3>
-                    <Button 
-                        onClick={onClear}
-                        display={favorites.length > 0} 
-                        maxWidth={"189px"} right height={38} fontSize={14} backgroundNone
-                    >
+                    <Button backgroundNone right {...buttonProps}>
                         <span>Очистить избранные</span>
                     </Button>
                     <Style.Links>
-                        <Style.Link>Избранные объявления</Style.Link>
+                        <Style.Link>Избранные объявления {favorites.length > 0 ? `(${favorites.length})` : ""} </Style.Link>
                     </Style.Links>
                 </Container>
             </Style.Header>
@@ -48,9 +68,45 @@ export const Favorites = () => {
                             </p>
                         </Style.NotAds>
                     </When>
-                    <When when={favorites.length > 0}>
-
-                    </When>
+                    <MediaBlock showDesctop={true} showMobile={false}>
+                        <When when={favorites.length > 0}>
+                            <TypeList type={type} setType={setType} />
+                            <FlexContainer marginBottom={40}>
+                                {favorites.map((i) => (
+                                    <AdCard 
+                                        onHeart={() => onHeart(i.id)}
+                                        img={i.img} 
+                                        desc={i.desc} 
+                                        place={i.place} 
+                                        choosen={unical(i.id, favorites)}
+                                        type={type}
+                                    />
+                                ))} 
+                            </FlexContainer>
+                        </When>
+                    </MediaBlock>
+                    <MediaBlock showMobile={true} showDesctop={false} flexOverflow>
+                        <Swiper 
+                            navigation
+                            slidesPerView={1} 
+                            spaceBetween={30}
+                            pagination={{ clickable: true }}
+                            scrollbar={{ draggable: true }}
+                            breakpoints={breakpoints}
+                        >
+                        {favorites.map((i) => ( 
+                            <SwiperSlide key={i.id}>
+                                <AdCard 
+                                    onHeart={() => onHeart(i.id)}
+                                    img={i.img} 
+                                    desc={i.desc} 
+                                    place={i.place} 
+                                    choosen={unical(i.id, favorites)}
+                                />
+                            </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </MediaBlock>
                 </Container>
             </Style.Content>
         </Block>

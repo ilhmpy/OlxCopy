@@ -121,12 +121,6 @@ export const Button = styled.button<ButtonProps>`
                 font-size: ${fontSize != undefined ? fontSize : "16"}px !important;
                 border-radius: 4px;
                 box-shadow: 0 0 0 2px #002f34;
-                ${right && `
-                    position: absolute;
-                    right: 0px;
-                    top: 55px;
-                    border: 0px solid #fff;
-                `}
                 & > span { 
                     align-items: center;
                     display: flex;
@@ -139,6 +133,16 @@ export const Button = styled.button<ButtonProps>`
                         color: #002f34;
                     }
                 }
+                ${right && `
+                    position: absolute;
+                    right: 0px;
+                    top: 55px;
+                    border: 0px solid #fff;
+                    ${Media.Mobile} {
+                        position: relative;
+                        top: 0px;
+                    }
+                `}}
             `;
         };
     }}
