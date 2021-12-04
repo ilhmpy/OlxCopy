@@ -106,7 +106,7 @@ export const Prompt = styled.div<{ view: boolean; choosen: boolean; }>`
     border-radius: 4px;
     font-size: 14px;
     bottom: 42px;
-    right: ${({ choosen }) => choosen ? "-75px" : "-122px"};
+    right: ${({ choosen }) => choosen ? "-75px" : "-124px"};
     z-index: 999;
     font-weight: 400;
     display: ${({ view }) => view ? "flex" : "none"};
@@ -141,7 +141,7 @@ const CardHeart = styled.i<{ choosen: boolean; }>`
     position: absolute;
     right: 0;
     font-size: 22px;
-    color: ${({ choosen }) => choosen ? "inherit" : "#c6c6c6"};
+    color: ${({ choosen }) => choosen ? "#c6c6c6" : "#002f34"};
     cursor: pointer;
     bottom: 15px;
     right: 15px;

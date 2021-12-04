@@ -5,12 +5,12 @@ import { Favorites } from "./pages/Favorites/Favorites";
 import { PageTitle } from "./components/PageTitle/PageTitle";
 import { Routes } from "./consts/routes";
 
-function App() {   
+function App() {    
   const routing = useRoutes([
     { path: Routes.Main, element: (
       <PageTitle title={"Главная"}>
         <Main />
-      </PageTitle>
+      </PageTitle> 
     ) },
     { path: Routes.Auth, element: (
       <PageTitle title={"Авторизация"}>
@@ -27,3 +27,4 @@ function App() {
 } 
 
 export default App;
+ 
