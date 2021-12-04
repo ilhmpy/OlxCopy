@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 
 type CardProps = {
@@ -10,9 +11,10 @@ type CardProps = {
 }
 
 export const Card = ({ icon, children, path, heart, heartCount }: CardProps) => {
+    const navigate = useNavigate();
     const handlePath = () => {
         if (path) {
-            window.location.href = path;
+            navigate(path, { replace: true });
         };
     };
 

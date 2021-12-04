@@ -112,7 +112,7 @@ export const Button = styled.button<ButtonProps>`
             return `
                 width: 100%;
                 background: none;
-                display: ${display ? "flex" : "none"};
+                display: ${display != undefined ? display ? "flex" : "none" : "flex"};
                 align-items: center;
                 justify-content: center;
                 color: #002f34;

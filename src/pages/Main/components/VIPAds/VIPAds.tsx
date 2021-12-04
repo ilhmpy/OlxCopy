@@ -35,10 +35,12 @@ export const VIPads = () => {
         { id: 17, img: test, desc: "Гирлянда светодиодная Водопад 320 LED (3х1,5) с тепло-белым", place: { city: "Киев, Дарницкий", time: new Date(), price: 120000 }},
         { id: 18, img: test, desc: "Гирлянда светодиодная Водопад 320 LED (3х1,5) с тепло-белым", place: { city: "Киев, Дарницкий", time: new Date(), price: 135000 }},
     ]);
-    const { favorites, setFavorites } = useContext(AppContext);
+    const { favorites, setFavorites, call, setCall, setText } = useContext(AppContext);
 
     function onHeart(id: number) {
         setFavorites(unical(id, favorites) ? [...favorites, ads[id]] : favorites.filter((i) => i.id !== id));
+        setCall(true);
+        setText(unical(id, favorites) ? "Добавленно в избранные" : "Удаленно из избранных");
     }; 
     
     return (
