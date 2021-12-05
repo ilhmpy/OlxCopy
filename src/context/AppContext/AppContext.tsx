@@ -3,6 +3,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { FavoritesViewModel } from "../../types/favorites";
 import { ReactNode, FC } from "react";
 import { Notify } from "../../components/Notify/Notify";
+import * as signalR from "@microsoft/signalr";
 
 type AppContextFields = {
     favorites: FavoritesViewModel[];
@@ -10,6 +11,7 @@ type AppContextFields = {
     call: boolean;
     setCall: (val: boolean) => void;
     setText: (val: string) => void;
+    connection: any;
 };
 
 type AppContextProviderType = {
@@ -22,12 +24,17 @@ export const AppContext = createContext<AppContextFields>({
     call: false,
     setCall: (val: boolean) => undefined,
     setText: (val: string) => undefined,
+    connection: undefined,
 });
 
 export const AppContextProvider: FC<AppContextProviderType> = ({ children }: AppContextProviderType) => {
     const [favorites, setFavorites] = useLocalStorage("favs", []);
     const [call, setCall] = useState<boolean>(false);
     const [text, setText] = useState<string>("");
+
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl(`http://localhost:8080/OlxHub`)
+        .build();
    
     return (
         <AppContext.Provider value={{
@@ -36,6 +43,7 @@ export const AppContextProvider: FC<AppContextProviderType> = ({ children }: App
             call,
             setCall,
             setText,
+            connection
         }}>
             <>
                 <Notify call={call} text={text} />                
